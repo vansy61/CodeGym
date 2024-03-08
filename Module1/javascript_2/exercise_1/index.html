@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convert Tool</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <section>
+
+
+    <!-- for average calc -->
+    <div class="block">
+      <h3>Điểm Trung Bình</h3>
+      <div class="form-wrapper average">
+        <div>
+          <label>Vật Lý</label>
+          <input type="text" id="physical">
+        </div>
+        <div>
+          <label>Hóa Học</label>
+          <input type="text" id="chemistry">
+        </div>
+        <div>
+          <label>Sinh Học</label>
+          <input type="text" id="biology">
+        </div>
+      </div>
+      <div>
+        <button type="submit" id="btn-average">Submit</button>
+      </div>
+      <div>
+        <p>Tổng điểm: <span id="sum"></span></p>
+        <p>Trung bình: <span id="average"></span></p>
+      </div>
+    </div>
+
+    <!-- for average calc -->
+    <div class="block">
+      <h3>Chuyển Đổi Độ C Sang Độ F</h3>
+      <div class="form-wrapper">
+        <div>
+          <label>Độ Celsius</label>
+          <input type="text" id="celsius">
+        </div>
+      </div>
+      <div>
+        <button type="submit" id="btn-c-to-f">Submit</button>
+      </div>
+      <div>
+        <p>Độ Fahrenheit: <span id="fahrenheit"></span></p>
+      </div>
+    </div>
+    <!-- for average calc -->
+    <div class="block">
+      <h3>Diện tích hình tròn</h3>
+      <div class="form-wrapper">
+        <div>
+          <label>Bán kính</label>
+          <input type="text" id="radius">
+        </div>
+      </div>
+      <div>
+        <button type="submit" id="btn-calc-area-circle">Submit</button>
+      </div>
+      <div>
+        <p>Diện tích hình tròn: <span id="circle-area"></span></p>
+      </div>
+    </div>
+    <!-- for average calc -->
+    <div class="block">
+      <h3>Chu Vi Hình Tròn</h3>
+      <div class="form-wrapper">
+        <div>
+          <label>Bán kính</label>
+          <input type="text" id="radius-diameter">
+        </div>
+      </div>
+      <div>
+        <button type="submit" id="btn-calc-diameter-circle">Submit</button>
+      </div>
+      <div>
+        <p>Chu vi hình tròn: <span id="circle-diameter"></span></p>
+      </div>
+    </div>
+
+  </section>
+
+  <script src="./index.js"></script>
+</body>
+
+</html>

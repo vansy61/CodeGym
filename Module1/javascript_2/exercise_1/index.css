@@ -1,0 +1,58 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+section > div {
+  flex-basis: 40%;
+}
+label {
+  display: block;
+}
+h3 {
+  margin-bottom: 30px;
+}
+input {
+  padding: 8px 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 100%;
+}
+button {
+  padding: 8px 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+}
+.block {
+  padding: 30px;
+  border: 1px solid gray;
+  border-radius: 20px;
+  margin: 20px 0;
+}
+.block >div {
+  margin-bottom: 20px;
+}
+.form-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.form-wrapper >div {
+  flex-basis: 100%;
+}
+.form-wrapper.average >div {
+  flex-basis: 30%;
+}
