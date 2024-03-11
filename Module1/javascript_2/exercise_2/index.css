@@ -1,0 +1,10 @@
+label {
+  display: block;
+}
+.wrapper {
+  display: flex;
+  align-items: flex-end;
+}
+.wrapper >div {
+  margin-right: 10px;
+}

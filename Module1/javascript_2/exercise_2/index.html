@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convert</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div>
+      <label>Amount</label>
+      <input type="text" id="amount">
+    </div>
+    <div>
+      <label>From Currency</label>
+      <select id="from-currency">
+        <option value="vnd">Viet Nam Dong</option>
+        <option value="usd">USD</option>
+      </select>
+    </div>
+    <div>
+      <label>To Currency</label>
+      <select id="to-currency">
+        <option value="vnd">Viet Nam Dong</option>
+        <option value="usd">USD</option>
+      </select>
+    </div>
+    <div>
+      <button id="btn-convert">Convert</button>
+    </div>
+
+  </div>
+  <p>Result: <span id="result">...</span></p>
+  
+  <script src="./index.js"></script>
+</body>
+</html>
