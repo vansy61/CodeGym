@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- Câu lệnh switch-case -->
+  <div>
+    <input type="text" id="month">
+    <button id="btn">Submit</button>
+  </div>
+  <p>Result: <span id="result"></span></p>
+
+  <script>
+    document.getElementById('btn').addEventListener('click', () => {
+      let month = parseInt(document.getElementById('month').value);
+      let result = '';
+
+      if(month < 1 || month > 12) {
+        alert('Tháng không hợp lệ!')
+        return;
+      }
+
+      switch (month) {
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+          result = 'có 30 ngày!'
+          break;
+        case 2:
+          result = 'có 28 hoặc 29 ngày!'
+          break;
+        default:
+          result = 'có 31 ngày!'
+          break;
+      }
+
+      document.getElementById('result').innerText = `Tháng ${month} ${result}`;
+    })
+  </script>
+</body>
+</html>

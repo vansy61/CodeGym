@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #no {
+      position: fixed;
+      transition: 1s;
+    }
+  </style>
+</head>
+<body>
+  <!-- Ứng dụng vui DoYouLoveMe -->
+  <div>
+    Do You Love Me!
+    <button id="yes">Yes</button>
+    <button id="no">No</button>
+  </div>
+
+  <script>
+    let w = window.innerWidth;
+    let h = window.innerHeight;
+    let btn_no = document.getElementById('no');
+
+    let randomPosition = (max) => {
+      return Math.floor(Math.random() * (max + 1))
+    }
+
+    document.getElementById('yes').addEventListener('click', () => {
+      alert('<3')
+    })
+    
+    btn_no.addEventListener('mouseenter', () => {
+      let r_x = randomPosition(w) - 40;
+      let r_y = randomPosition(h) - 25;
+      btn_no.style.left = r_x + 'px';
+      btn_no.style.top = r_y + 'px';
+    })
+  </script>
+</body>
+</html>

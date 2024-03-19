@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Function</title>
+</head>
+<body>
+  <button onclick="alertMessage()">Click me!</button>
+  <button onclick="inputName()">Find Constellation!</button>
+
+  <script>
+    // bai 1
+    function alertMessage() {
+      alert('Xin chào!')
+    }
+    // bai 2
+    function increaseNumber(number) {
+      return ++number;
+    }
+    console.log(increaseNumber(1));
+    // bai 3
+    function compareTwoNumber(a, b) {
+      if(a > b) {
+        alert('a > b');
+      }else if(a < b) {
+        return a + b;
+      }
+    }
+    console.log(compareTwoNumber(1, 2));
+    // bai 4
+    function addNumbers() {
+      let firstNum = 4;
+      let secondNum = 8;
+      return firstNum + secondNum;
+    }
+    let result = 0;
+    // alert(result);
+    result = addNumbers();
+    // alert(result);
+
+    // bai 5
+    let arr = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
+    let arr2 = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
+    
+    function findConstellation(str) {
+      let index = -1;
+      for (let i = 0; i < arr.length; i++) {
+        if(arr[i] == str) {
+          index = i;
+          break;
+        }
+      }
+
+      if(index == -1) {
+        return 'Không tìm thấy tên ngôi sao này!'
+      }else {
+        return arr2[index];
+      }
+    }
+
+    function inputName() {
+      let name = prompt('Nhập vào tên:');
+      alert(findConstellation(name));
+    }
+
+  </script>
+</body>
+</html>

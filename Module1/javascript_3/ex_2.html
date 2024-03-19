@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- Nhập và a, in ra 'Hello' nếu a chẵn, 'Hi' nếu a lẻ. -->
+  <div>
+    <input type="text" id="number">
+    <button id="btn">Submit</button>
+    <p>Result: <span id="result"></span></p>
+  </div>
+  <script>
+    document.getElementById('btn').addEventListener('click', () => {
+      let number = document.getElementById('number').value;
+      let result = 'Hi'
+      
+      if(Number(number)%2 == 0) {
+        result = 'Hello'
+      }
+      document.getElementById('result').innerText = result;
+    })
+  </script>
+</body>
+</html>

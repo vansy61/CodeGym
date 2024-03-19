@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- Nhập vào tuổi trong biến age, in ra 'Đủ tuổi' nếu age>18. -->
+  <div>
+    <input type="text" id="age">
+    <button id="btn">Submit</button>
+    <p>Result: <span id="result"></span></p>
+  </div>
+  <script>
+    document.getElementById('btn').addEventListener('click', () => {
+      let age = document.getElementById('age').value;
+      let result = 'Chưa đủ tuổi!'
+      
+      if(Number(age) > 18) {
+        result = 'Đủ tuổi!'
+      }
+      document.getElementById('result').innerText = result;
+    })
+  </script>
+</body>
+</html>

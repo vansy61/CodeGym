@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ex 1</title>
+</head>
+<body>
+  <script>
+    const arr = [
+        [1, 3, 4],
+        [3, 4, 5],
+        [5, 5, 6]
+    ];
+
+    // Tính tổng các phần tử mảng 2 chiều.
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = 0; j < arr[i].length; j++) {
+        sum += arr[i][j]
+      }
+    }
+    console.log(`Tổng: ${sum}`);
+
+    //  In ra tổng các phần tử của từng hàng
+    for (let i = 0; i < arr.length; i++) {
+      let sum = 0;
+      for (let j = 0; j < arr[i].length; j++) {
+        sum += arr[i][j]
+      }
+      console.log(`Tổng hàng thứ ${i + 1} là: ${sum}`)
+    }
+
+    // Tìm phần tử lớn nhất trong các hàng
+    for (let i = 0; i < arr.length; i++) {
+      let max = arr[i][0];
+      for (let j = 1; j < arr[i].length; j++) {
+        if(max < arr[i][j]) {
+          max = arr[i][j];
+        }
+      }
+      console.log(`Số lớn nhất hàng thứ ${i + 1} là: ${max}`);
+    }
+
+    // Hiển thị tổng các phần tử của từng cột
+    let sum_column = [];
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = 0; j < arr[i].length; j++) {
+        // init first sum value
+        if (sum_column[j] == undefined) {
+          sum_column[j] = 0;
+        }
+
+        sum_column[j] += arr[i][j];
+      }
+    }
+    for (let i = 0; i < sum_column.length; i++) {
+      console.log(`Tổng cột thứ ${i + 1} là: ${sum_column[i]}`);
+    }
+
+    //  Hiển thị phần tử lớn nhất của từng cột
+    let max_column = [];
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = 0; j < arr[i].length; j++) {
+        
+        if (max_column[j] == undefined || max_column[j] < arr[i][j]) {
+          max_column[j] = arr[i][j];
+        }
+      }
+    }
+    for (let i = 0; i < max_column.length; i++) {
+      console.log(`Số lớn nhất cột thứ ${i + 1} là: ${max_column[i]}`);
+    }
+  </script>
+</body>
+</html>
