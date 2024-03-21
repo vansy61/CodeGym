@@ -26,15 +26,20 @@
 </head>
 <body>
   <section>
+    <!-- form add product -->
     <div>
       <input type="text" id="product-name">
-      <button id="add-product">Submit</button>
+      <button id="add-product" onclick="handleAdd()">Submit</button>
     </div>
+
+    <!-- title and product count -->
     <h5>Display All Product</h5>
     <div class="header">
       <div>Product name</div>
       <div><span id="product-count"></span> products</div>
     </div>
+
+    <!-- table products -->
     <div>
       <table>
         <tbody id="products">
@@ -48,7 +53,7 @@
     const products = ['Sản phẩm số 1'];
 
     // add product
-    function addProduct(name) {
+    function add(name) {
       if(checkExits(name)) {
         alert('Sản phẩm đã tồn tại!!!!');
         return;
@@ -58,7 +63,6 @@
 
     // check exits product
     function checkExits(name) {
-      // check exits product
       for (let i = 0; i < products.length; i++) {
         if(products[i] == name) {
           return true;
@@ -68,30 +72,30 @@
     }
     
     // remove product
-    function removeProduct(index) {
+    function remove(index) {
       products.splice(index, 1);
-      renderProduct();
+      render();
     }
 
     // edit product
-    function editProduct(index) {
+    function edit(index) {
       let new_product_name = prompt('Chỉnh sửa tên sản phẩm:', products[index]);
       if(checkExits(new_product_name)) {
         alert('Sản phẩm đã tồn tại!!!')
-        return editProduct(index);
+        return edit(index);
       }
       products[index] = new_product_name;
-      renderProduct();
+      render();
     }
 
     // render list product
-    function renderProduct() {
+    function render() {
       let html = "";
       for (let i = 0; i < products.length; i++) {
         html += `<tr>
                   <td>${products[i]}</td>
-                  <td><button class="edit" data-index="${i}">Edit</button></td>
-                  <td><button class="delete" data-index="${i}">Delete</button></td>
+                  <td><button class="edit" onclick="edit(${i});">Edit</button></td>
+                  <td><button class="delete" onclick="remove(${i});">Delete</button></td>
                 </tr>`;
       }
 
@@ -101,30 +105,15 @@
     }
     
 
-    function bindActions() {
-      // bind click delete button
-      document.querySelectorAll('.delete').forEach(function(el) {
-        el.addEventListener('click', function() {
-          removeProduct(this.dataset.index);
-        })
-      })
-      // bind click edit button
-      document.querySelectorAll('.edit').forEach(function(el) {
-        el.addEventListener('click', function() {
-          editProduct(this.dataset.index);
-        })
-      })
+    // bind click add product
+    function handleAdd() {
+      let product_name = document.getElementById('product-name').value;
+      add(product_name);
+      render();
     }
 
-    // bind click add product
-    document.getElementById('add-product').addEventListener('click', function() {
-      let product_name = document.getElementById('product-name').value;
-      addProduct(product_name);
-      renderProduct();
-    })
-
     // first render
-    renderProduct()
+    render()
 
 
   </script>

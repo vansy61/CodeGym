@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    canvas {
+      border: 1px solid gray;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="main-canvas" width="800" height="600"></canvas>
+  
+  <script>
+    
+    
+    class Game {
+      constructor() {
+        this.canvas = document.getElementById('main-canvas');
+        this.context = this.canvas.getContext("2d");
+
+        this.setup();
+      }
+
+      setup() {
+        // car image
+        this.car_img = new Image(100, 100);
+        this.car_img.img.src = "./img/car.png";
+      }
+
+      update() {
+
+      }
+
+      start() {
+        // render car
+
+      }
+
+      stop() {
+
+      }
+    }
+
+    class Component {
+      constructor(img) {
+        this.img = 
+      }
+    }
+
+
+    const game = new Game();
+
+    console.log(game.context)
+
+
+  </script>
+</body>
+</html>
