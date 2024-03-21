@@ -7,7 +7,6 @@
 </head>
 <body>
   <button onclick="alertMessage()">Click me!</button>
-  <button onclick="inputName()">Find Constellation!</button>
 
   <script>
     // bai 1
@@ -16,7 +15,7 @@
     }
     // bai 2
     function increaseNumber(number) {
-      return ++number;
+      return number + 1;
     }
     console.log(increaseNumber(1));
     // bai 3
@@ -40,29 +39,21 @@
     // alert(result);
 
     // bai 5
-    let arr = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
-    let arr2 = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
+    const arr = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
+    const arr2 = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
     
     function findConstellation(str) {
-      let index = -1;
       for (let i = 0; i < arr.length; i++) {
         if(arr[i] == str) {
-          index = i;
-          break;
+          return arr2[i];
         }
       }
-
-      if(index == -1) {
-        return 'Không tìm thấy tên ngôi sao này!'
-      }else {
-        return arr2[index];
-      }
+      return 'Không tìm thấy tên ngôi sao này!';
     }
 
-    function inputName() {
-      let name = prompt('Nhập vào tên:');
-      alert(findConstellation(name));
-    }
+    let name = prompt('Nhập vào tên:');
+    let constellation = findConstellation(name);
+    alert(constellation);
 
   </script>
 </body>

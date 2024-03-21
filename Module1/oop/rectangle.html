@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+
+    class Rectangle {
+      constructor(width, height) {
+        this.w = width;
+        this.h = height;
+      }
+
+      area() {
+        return this.w * this.h;
+      }
+
+      perimeter() {
+        return (this.w + this.h) * 2;
+      }
+    }
+
+
+    const rectangle_1 = new Rectangle(50, 10);
+    document.write(`Chiều dài: ${rectangle_1.w}, chiều rộng: ${rectangle_1.h}, chu vi: ${rectangle_1.perimeter()}, diện tích: ${rectangle_1.area()}`);
+    document.write('<br />')
+    document.write('Thay đổi chiều dài thành 30, chiều rộng thành 15');
+    rectangle_1.w = 30;
+    rectangle_1.h = 15;
+    document.write('<br />')
+    document.write(`chu vi: ${rectangle_1.perimeter()}, diện tích: ${rectangle_1.area()}`);
+  </script>
+  
+</body>
+</html>

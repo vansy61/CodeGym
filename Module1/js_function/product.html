@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    section {
+      width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid gray;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    table {
+      width: 100%;
+    }
+    table, th, td {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <div>
+      <input type="text" id="product-name">
+      <button id="add-product">Submit</button>
+    </div>
+    <h5>Display All Product</h5>
+    <div class="header">
+      <div>Product name</div>
+      <div><span id="product-count"></span> products</div>
+    </div>
+    <div>
+      <table>
+        <tbody id="products">
+          <!-- render products here -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <script>
+    const products = ['Sản phẩm số 1'];
+
+    // add product
+    function addProduct(name) {
+      if(checkExits(name)) {
+        alert('Sản phẩm đã tồn tại!!!!');
+        return;
+      }
+      products.push(name);
+    }
+
+    // check exits product
+    function checkExits(name) {
+      // check exits product
+      for (let i = 0; i < products.length; i++) {
+        if(products[i] == name) {
+          return true;
+        }
+      }
+      return false
+    }
+    
+    // remove product
+    function removeProduct(index) {
+      products.splice(index, 1);
+      renderProduct();
+    }
+
+    // edit product
+    function editProduct(index) {
+      let new_product_name = prompt('Chỉnh sửa tên sản phẩm:', products[index]);
+      if(checkExits(new_product_name)) {
+        alert('Sản phẩm đã tồn tại!!!')
+        return editProduct(index);
+      }
+      products[index] = new_product_name;
+      renderProduct();
+    }
+
+    // render list product
+    function renderProduct() {
+      let html = "";
+      for (let i = 0; i < products.length; i++) {
+        html += `<tr>
+                  <td>${products[i]}</td>
+                  <td><button class="edit" data-index="${i}">Edit</button></td>
+                  <td><button class="delete" data-index="${i}">Delete</button></td>
+                </tr>`;
+      }
+
+      document.getElementById('products').innerHTML = html;
+      document.getElementById('product-count').innerText = products.length;
+      bindActions();
+    }
+    
+
+    function bindActions() {
+      // bind click delete button
+      document.querySelectorAll('.delete').forEach(function(el) {
+        el.addEventListener('click', function() {
+          removeProduct(this.dataset.index);
+        })
+      })
+      // bind click edit button
+      document.querySelectorAll('.edit').forEach(function(el) {
+        el.addEventListener('click', function() {
+          editProduct(this.dataset.index);
+        })
+      })
+    }
+
+    // bind click add product
+    document.getElementById('add-product').addEventListener('click', function() {
+      let product_name = document.getElementById('product-name').value;
+      addProduct(product_name);
+      renderProduct();
+    })
+
+    // first render
+    renderProduct()
+
+
+  </script>
+</body>
+</html>
