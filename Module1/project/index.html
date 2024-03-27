@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Money Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <main>
+    <div class="left-content text-center">
+      <div class="wallet">
+        <h3>Ví Tiền</h3>
+        <p class="amount"></p>
+      </div>
+      <div class="profile">
+        <div class="avatar">
+          <img src="https://random.imagecdn.app/500/500" alt="avatar">
+        </div>
+        <h5 class="name"></h5>
+        <p class="dob"></p>
+        <p class="job"></p>
+      </div>
+    </div>
+    <div class="right-content">
+      <div class="actions">
+        <div>
+          <input type="text" placeholder="Tìm kiếm">
+          <select name="" id="">
+            <option value="">Thu</option>
+            <option value="">Chi</option>
+          </select>
+          <select name="" id="">
+            <option value="">Danh muc 1</option>
+          </select>
+        </div>
+        <div>
+          <button class="btn-in">Tạo Khoản Thu</button>
+          <button class="btn-out">Tạo Khoản Chi</button>
+          <button>Danh mục</button>
+          <button>Báo cáo</button>
+        </div>
+
+      </div>
+      <div class="list">
+        <table>
+          <thead>
+            <tr>
+              <td>Ngày tạo</td>
+              <td>Loại</td>
+              <td>Hạng mục</td>
+              <td>Giá trị</td>
+              <td>Ghi chú</td>
+              <td>Hành động</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>13/12/2024</td>
+              <td>Chi</td>
+              <td>Tiền ăn</td>
+              <td>1.000.000</td>
+              <td>ha ha ha</td>
+              <td>
+                <button>Edit</button>
+                <button class="btn-delete">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="./money_manager.js"></script>
+  <script src="./transaction.js"></script>
+  <script src="./user.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>

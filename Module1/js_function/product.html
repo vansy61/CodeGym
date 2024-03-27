@@ -54,6 +54,10 @@
 
     // add product
     function add(name) {
+      if(name == '') {
+        alert('Tên không đc trống!!!')
+        return;
+      }
       if(checkExits(name)) {
         alert('Sản phẩm đã tồn tại!!!!');
         return;
@@ -114,8 +118,7 @@
 
     // first render
     render()
-
-
+    
   </script>
 </body>
 </html>

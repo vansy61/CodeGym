@@ -12,49 +12,116 @@
 </head>
 <body>
   <canvas id="main-canvas" width="800" height="600"></canvas>
-  
   <script>
-    
-    
     class Game {
       constructor() {
         this.canvas = document.getElementById('main-canvas');
         this.context = this.canvas.getContext("2d");
-
-        this.setup();
       }
-
-      setup() {
-        // car image
-        this.car_img = new Image(100, 100);
-        this.car_img.img.src = "./img/car.png";
-      }
-
       update() {
+          this.checkPosition();
+          this.clear();
+          this.car.move();
+          this.car.render(this.context);
+      }
 
+      checkPosition() {
+        if(this.car.x == 0 || this.car.y == 0 || this.car.x_max == this.canvas.width || this.car.y_max == this.canvas.height) {
+          this.stop();
+          alert('End game')
+        }
       }
 
       start() {
-        // render car
+        this.car = new Component('./img/car.png', 400, 300, 80, 80, 'up');
+        this.interval = setInterval(() => {
+          this.update();
+        }, 10)
 
+        this.bindControls();
+      }
+
+      bindControls() {
+        document.addEventListener("keydown", (event) => {
+          console.log(event)
+          if(event.code == 'ArrowUp') {
+            return this.car.direction = 'up';
+          }
+
+          if(event.code == 'ArrowDown') {
+            return this.car.direction = 'down';
+          }
+
+          if(event.code == 'ArrowRight') {
+            return this.car.direction = 'right';
+          }
+
+          if(event.code == 'ArrowLeft') {
+            return this.car.direction = 'left';
+          }
+
+        });
+      }
+
+      clear() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
       }
 
       stop() {
-
+        clearInterval(this.interval);
       }
     }
 
     class Component {
-      constructor(img) {
-        this.img = 
+      constructor(img_url, x, y, w, h, direction) {
+        this.img = new Image();
+        this.img.src = img_url;
+        this._x = x;
+        this._y = y;
+        this.w = w;
+        this.h = h;
+        this.direction = direction;
+      }
+
+      move() {
+        if(this.direction == 'up') {
+          return --this._y;
+        }
+        if(this.direction == 'down') {
+          return ++this._y;
+        }
+        if(this.direction == 'right') {
+          return ++this._x;
+        }
+        if(this.direction == 'left') {
+          return --this._x;
+        }
+      }
+
+      render(context) {
+        context.drawImage(this.img, this.x, this.y, this.w, this.h);
+      }
+
+      get x() {
+        return this._x - this.w/2;
+      }
+      
+      get y() {
+        return this._y - this.w/2;
+      }
+      get x_max() {
+        return this._x + this.w/2;
+      }
+      
+      get y_max() {
+        return this._y + this.w/2;
       }
     }
 
 
     const game = new Game();
 
-    console.log(game.context)
-
+    game.start()
 
   </script>
 </body>
