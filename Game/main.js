@@ -35,7 +35,9 @@ const player = {
   speed: 3,
   score: 0,
   max_bomb: 3,
-  immortal: false
+  immortal: false,
+  enemy_toward: false,
+  buff_speed: false
 };
 
 function movePlayer() {
@@ -54,7 +56,7 @@ function movePlayer() {
 function drawPlayer() {
   ctx.beginPath();
   ctx.rect(player.x, player.y, player.width, player.height);
-  ctx.fillStyle = 'black';
+  ctx.fillStyle = 'white';
   ctx.fill();
   ctx.closePath();
 }
@@ -100,6 +102,16 @@ function showInfo() {
   document.getElementById('score').innerText = player.score;
   // show bom can place
   document.getElementById('bom').innerText = (player.max_bomb - bombs.length);
+
+  // show current reward
+  let html_reward = '';
+  if(player.immortal) {
+    html_reward += `<span>Bất Tử</span>`;
+  }
+  if(player.buff_speed) {
+    html_reward += `<span>Tăng tốc chạy</span>`;
+  }
+  document.getElementById('list-reward').innerHTML = html_reward;
 }
 
 function collisionDetection() {
@@ -164,12 +176,14 @@ function collisionDetection() {
     }
   }
 }
-gameEnd = false;
+
+let gameEnd = false;
 
 function draw() {
   if(gameEnd) {
-    return false;
+    return;
   }
+
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   movePlayer();
   drawPlayer();
@@ -194,14 +208,31 @@ function draw() {
 
   showInfo();
   collisionDetection();
-
   requestAnimationFrame(draw);
 }
 
-function gameOver() {
-  gameEnd = true
-  alert('Game Over! Your score: ' + player.score);
+function start() {
+  setInterval(createEnemy, 2000);
+  setInterval(createChest, 10000);
+  setInterval(createEvent, 20000);
+  draw();
 }
 
-draw();
+function gameOver() {
+  gameEnd = true;
+  document.getElementById('end-score').innerText = player.score;
+  document.getElementById('modal-end').classList.remove('hide');
+}
+
+// click start game
+document.getElementById('start').addEventListener('click', () => {
+  document.getElementById('modal-start').classList.add('hide');
+  start();
+}, {once : true})
+
+// click restart => reload page
+document.getElementById('restart').addEventListener('click', () => {
+  location.reload();
+})
+
 

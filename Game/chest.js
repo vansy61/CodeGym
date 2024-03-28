@@ -5,18 +5,26 @@ chestImg.src = './chest.png';
 // chest reward
 const reward = [
   {
-    noti: 'Tăng 1 quả bom vĩnh viễn!',
     action: function() {
       player.max_bomb++;
     }
   },
   {
-    noti: 'Bất tử trong 15 giây!',
     action: function() {
       player.immortal = true;
       setTimeout(() => {
         player.immortal = false;
-      }, 15000)
+      }, 5000)
+    }
+  },
+  {
+    action: function() {
+      player.speed += 4;
+      player.buff_speed = true;
+      setTimeout(() => {
+        player.speed -= 4;
+        player.buff_speed = false;
+      }, 10000)
     }
   }
 ]
@@ -56,5 +64,3 @@ function createChest() {
   let pos = randomStartPos();
   chests.push(new Chest(pos[0], pos[1]));
 }
-// Gọi tạo enemy mỗi 2 giây
-setInterval(createChest, 15000);

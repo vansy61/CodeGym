@@ -28,16 +28,21 @@ class Enemy extends GameObject {
     super(x, y);
     this.speed = 2;
   }
-  // move() {
-  //     // Calculate direction towards player
-  //     const dx = player.x - this.x;
-  //     const dy = player.y - this.y;
-  //     const distance = Math.sqrt(dx * dx + dy * dy);
-  //     const normalizedDx = dx / distance;
-  //     const normalizedDy = dy / distance;
-  //     this.x += (normalizedDx * this.speed);
-  //     this.y += (normalizedDy * this.speed);
-  // }
+  move() {
+    if(player.enemy_toward) {
+      // Calculate direction towards player
+      const dx = player.x - this.x;
+      const dy = player.y - this.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      const normalizedDx = dx / distance;
+      const normalizedDy = dy / distance;
+      this.x += (normalizedDx * this.speed);
+      this.y += (normalizedDy * this.speed);
+    }else {
+      super.move();
+    }
+
+  }
 }
 
 function randomStartPos() {
@@ -67,9 +72,8 @@ function randomStartPos() {
 
 const enemies = [];
 // Func tạo enemy
-function spawnEnemy() {
+function createEnemy() {
   let pos = randomStartPos()
   enemies.push(new Enemy(pos[0], pos[1]));
 }
-// Gọi tạo enemy mỗi 2 giây
-setInterval(spawnEnemy, 2000);
+
