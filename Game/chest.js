@@ -19,10 +19,10 @@ const reward = [
   },
   {
     action: function() {
-      player.speed += 4;
+      player.speed += 2;
       player.buff_speed = true;
       setTimeout(() => {
-        player.speed -= 4;
+        player.speed -= 2;
         player.buff_speed = false;
       }, 10000)
     }

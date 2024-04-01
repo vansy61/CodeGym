@@ -1,20 +1,12 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
+// load image
+const playerImg = new Image();
+playerImg.src = './player.png';
 
 
-const ememyImg = [];
-const avail_img = 4;
-for (let i = 1; i <= avail_img; i++) {
-  let img = new Image();
-  img.src = `./enemy-${i}.png`;
-  ememyImg.push(img);
-}
 // ===================================================
 
-function getRandomEnemyImg() {
-  let i = random(0, 3)
-  return ememyImg[i];
-}
 
 function random(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min; 
@@ -26,18 +18,20 @@ let rightPress = false;
 let leftPress = false;
 let downPress = false;
 let upPress = false;
+
 // Player object
 const player = {
   x: canvas.width / 2,
   y: canvas.height / 2,
-  width: 20,
-  height: 20,
+  width: 40,
+  height: 40,
   speed: 3,
-  score: 0,
+  score:0,
   max_bomb: 3,
   immortal: false,
   enemy_toward: false,
-  buff_speed: false
+  buff_speed: false,
+  enemy_speed: 2
 };
 
 function movePlayer() {
@@ -54,11 +48,7 @@ function movePlayer() {
 }
 
 function drawPlayer() {
-  ctx.beginPath();
-  ctx.rect(player.x, player.y, player.width, player.height);
-  ctx.fillStyle = 'white';
-  ctx.fill();
-  ctx.closePath();
+  ctx.drawImage(playerImg, player.x, player.y, player.width, player.height);
 }
 
 function placeBomb() {
@@ -114,7 +104,7 @@ function showInfo() {
   document.getElementById('list-reward').innerHTML = html_reward;
 }
 
-function collisionDetection() {
+function collisionDetect() {
   for (let i = 0; i < bombs.length; i++) {
     const bomb = bombs[i];
 
@@ -126,7 +116,16 @@ function collisionDetection() {
           bomb.y < enemy.y + enemy.height &&
           bomb.y + 40 > enemy.y
       ) {
+          ping.play();
           player.score++;
+
+          if(player.score%20 === 0 && player.score > 0) {
+            player.enemy_speed += 1.2;
+          }
+          if(player.score%35 === 0 && player.score > 0) {
+            setInterval(createEnemy, 1500);
+          }
+
           bombs.splice(i, 1);
           enemies.splice(j, 1);
           break;
@@ -189,10 +188,9 @@ function draw() {
   drawPlayer();
 
   // update position and redraw enemy
-  let img = getRandomEnemyImg();
   for (const enemy of enemies) {
     enemy.move();
-    enemy.draw(img);
+    enemy.draw(enemy.img);
   }
 
   // redraw bomds
@@ -207,7 +205,7 @@ function draw() {
   }
 
   showInfo();
-  collisionDetection();
+  collisionDetect();
   requestAnimationFrame(draw);
 }
 
@@ -228,6 +226,7 @@ function gameOver() {
 document.getElementById('start').addEventListener('click', () => {
   document.getElementById('modal-start').classList.add('hide');
   start();
+  music.play();
 }, {once : true})
 
 // click restart => reload page

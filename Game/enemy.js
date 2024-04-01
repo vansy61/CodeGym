@@ -1,11 +1,11 @@
 class GameObject {
-  constructor(x, y) {
+  constructor(x, y, speed = 2) {
     this.x = x;
     this.y = y;
     this.width = 50;
     this.height = 50;
-    this.speedX = 2;
-    this.speedY = 2;
+    this.speedX = speed;
+    this.speedY = speed;
   }
   draw(img) {
     ctx.drawImage(img, this.x, this.y, this.width, this.height);
@@ -24,9 +24,10 @@ class GameObject {
 }
 
 class Enemy extends GameObject {
-  constructor(x, y) {
-    super(x, y);
-    this.speed = 2;
+  constructor(x, y, img, speed = 2) {
+    super(x, y, speed);
+    this.speed = speed;
+    this.img = img;
   }
   move() {
     if(player.enemy_toward) {
@@ -46,7 +47,7 @@ class Enemy extends GameObject {
 }
 
 function randomStartPos() {
-    const side = Math.floor(Math.random() * 2);
+    const side = random(0, 3);
     let x, y;
     switch (side) {
         case 0: // Top
@@ -72,8 +73,12 @@ function randomStartPos() {
 
 const enemies = [];
 // Func tạo enemy
-function createEnemy() {
+function createEnemy(speed) {
+  speed ||= player.enemy_speed;
   let pos = randomStartPos()
-  enemies.push(new Enemy(pos[0], pos[1]));
+  let i = random(1, 4)
+  let img = new Image();
+  img.src = `./enemy-${i}.png`;
+  enemies.push(new Enemy(pos[0], pos[1], img, speed));
 }
 
