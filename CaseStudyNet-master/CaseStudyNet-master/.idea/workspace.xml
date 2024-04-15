@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="50ea5278-e252-408f-a9f1-86692404bf4c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account.csv" beforeDir="false" afterPath="$PROJECT_DIR$/account.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account_play.csv" beforeDir="false" afterPath="$PROJECT_DIR$/account_play.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foot.csv" beforeDir="false" afterPath="$PROJECT_DIR$/foot.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/menu/HandlePlayerMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/menu/HandlePlayerMenu.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="28izRhuVtH2FbMulNqPIUEeKCkr" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Linh\IdeaProjects\CaseStudyMd2" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.SeverCheckAccount">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sever.Main" />
+      <module name="CaseStudyMd2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sever.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainPlayer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client.MainPlayer" />
+      <module name="CaseStudyMd2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="client.menu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Money" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="money.Money" />
+      <module name="CaseStudyMd2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="money.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SchedulingUsingTimerTask" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="money.SchedulingUsingTimerTask" />
+      <module name="CaseStudyMd2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="money.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SeverCheckAccount" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sever.menusever.SeverCheckAccount" />
+      <module name="CaseStudyMd2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sever.menusever.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainPlayer" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.SeverCheckAccount" />
+        <item itemvalue="Application.Money" />
+        <item itemvalue="Application.SchedulingUsingTimerTask" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="50ea5278-e252-408f-a9f1-86692404bf4c" name="Changes" comment="" />
+      <created>1651714190219</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1651714190219</updated>
+      <workItem from="1651714192220" duration="70207000" />
+      <workItem from="1651953798665" duration="1416000" />
+      <workItem from="1652004414470" duration="12371000" />
+      <workItem from="1652058743951" duration="16287000" />
+      <workItem from="1652144663734" duration="1348000" />
+      <workItem from="1652148470680" duration="9801000" />
+      <workItem from="1652175665216" duration="27000" />
+      <workItem from="1652318381796" duration="2406000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
