@@ -28,6 +28,10 @@ public class MyArrayList {
         return -1;
     }
 
+    public boolean contains(Object o) {
+        return this.indexOf(o) > 0;
+    }
+
     public void add(Object o) {
         if(size == items.length - 1) {
 //            Tạo mảng mới vơi kích thước lớn hơn
@@ -35,6 +39,15 @@ public class MyArrayList {
             this.items[size] = o;
             size++;
         }
+    }
+
+    public void add(int index, Object o) {
+        for (int i = index; i <= this.size; i++) {
+            Object tempt = this.items[i];
+            this.items[i] = o;
+            o = tempt;
+        }
+        size++;
     }
 
     public void remove(int index) {
@@ -56,7 +69,7 @@ public class MyArrayList {
             System.out.println(this.items[i]);
         }
     }
-    
+
 
 
 }

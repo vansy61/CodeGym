@@ -39,7 +39,7 @@ public class MyArrayList {
             this.container[i] = this.container[i + 1];
         }
         this.container[this.size - 1] = null;
-        this.size--;
+        size--;
     }
 
     public void update(int index, Object value) {

@@ -12,6 +12,7 @@ public class Main {
         System.out.println(test.size());
         System.out.println(test.get(0));
         test.remove(7);
+        test.add(2, 999);
         test.show();
 
     }
