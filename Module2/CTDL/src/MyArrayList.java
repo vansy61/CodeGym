@@ -1,7 +1,7 @@
 public class MyArrayList {
-    int size = 0;
-    static final int CAPACITY = 10;
-    Object[] items;
+    private int size = 0;
+    private static final int CAPACITY = 10;
+    private Object[] items;
 
     MyArrayList() {
         this.items = new Object[CAPACITY];
@@ -34,7 +34,7 @@ public class MyArrayList {
 
     public void add(Object o) {
         if(size == items.length - 1) {
-//            Tạo mảng mới vơi kích thước lớn hơn
+        // Tạo mảng mới vơi kích thước lớn hơn
         }else {
             this.items[size] = o;
             size++;
