@@ -4,8 +4,8 @@ public class Main {
         MyArrayList listStudent = new MyArrayList();
 
         Student student1 = new Student("Student 1", "test01@gmail.com", 9);
-        Student student2 = new Student("Student 2", "test02@gmail.com", 6);
-        Student student3 = new Student("Student 3", "test03@gmail.com", 7);
+        Student student2 = new Student("Student 2", "test02@gmail.com", 6.2);
+        Student student3 = new Student("Student 3", "test03@gmail.com", 7.1);
 
         listStudent.add(student1);
         listStudent.add(student2);

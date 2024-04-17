@@ -2,8 +2,8 @@ public class Student {
     private static int lastedId = 0;
     private int id;
     private String name;
-    private double gpa;
     private String email;
+    private double gpa;
 
 
     Student(String name, String email, double gpa) {
