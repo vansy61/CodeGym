@@ -54,14 +54,10 @@ public class MyArrayList {
         if(index >= size) {
             return;
         }
-        for (int i = index; i < size; i++) {
-            if(i + 1 == size ) {
-                this.items[i] = null;
-            }else {
-                this.items[i] = this.items[i + 1];
-            }
+        for (int i = index; i < this.size - 1; i++) {
+            this.items[i] = this.items[i + 1];
         }
-        size--;
+        this.items[--size] = null;
     }
 
     public void show() {
