@@ -1,9 +1,7 @@
 package order;
 
-import io.Input;
-import manager.GetInfoable;
 
-public class OrderView implements GetInfoable {
+public class OrderView {
     public void showMainMenu() {
         System.out.println("---- QUẢN LÝ ĐƠN HÀNG ----");
         String[] main_menu = {

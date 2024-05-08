@@ -28,4 +28,21 @@ public class Input {
         String key = Input.getText();
         return key.equalsIgnoreCase("y");
     }
+
+    public static int getInfoIsInt(String title) {
+        int value;
+        do {
+            System.out.println("Vui lòng nhập " + title + ": ");
+            value = Input.getInt();
+        }while (value < 1);
+        return value;
+    }
+    public static String getInfoIsString(String title) {
+        String value;
+        do {
+            System.out.println("Vui lòng nhập " + title + ": ");
+            value = Input.getText();
+        }while (value.isEmpty());
+        return value;
+    }
 }

@@ -1,9 +1,8 @@
 package product;
 
 import io.Input;
-import manager.GetInfoable;
 
-public class ProductView implements GetInfoable {
+public class ProductView {
 
     public void showMainMenu() {
         System.out.println("---- CHƯƠNG TRÌNH QUẢN LÝ SẢN PHẨM ----");

@@ -96,7 +96,7 @@ public class OrderManager implements ShowListable<Order> {
 
     public void newOrder() {
         Order order = new Order();
-        String customerName = view.getInfoIsString("tên khách hàng");
+        String customerName = Input.getInfoIsString("tên khách hàng");
         order.setCustomerName(customerName);
         list.add(order);
         System.out.println("Tạo đơn hàng thành công!");

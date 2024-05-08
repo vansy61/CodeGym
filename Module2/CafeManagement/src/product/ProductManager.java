@@ -121,10 +121,10 @@ public class ProductManager implements ShowListable<Product> {
                 updateSku(product);
                 break;
             case "name":
-                product.setName(view.getInfoIsString("tên"));
+                product.setName(Input.getInfoIsString("tên"));
                 break;
             case  "price":
-                product.setPrice(view.getInfoIsInt("giá"));
+                product.setPrice(Input.getInfoIsInt("giá"));
                 break;
         }
         new ProductIo().saveDb(product);
@@ -132,7 +132,7 @@ public class ProductManager implements ShowListable<Product> {
     }
     private void updateSku(Product product) {
         while(true) {
-            String sku = view.getInfoIsString("sku");
+            String sku = Input.getInfoIsString("sku");
             if(!Objects.equals(sku, product.getSku()) && checkExistSku(sku)) {
                 System.err.println("Sku đã tồn tại!");
                 continue;
@@ -147,7 +147,7 @@ public class ProductManager implements ShowListable<Product> {
         Product product = new Product();
 
         while(true) {
-            String sku = view.getInfoIsString("sku");
+            String sku = Input.getInfoIsString("sku");
             if(checkExistSku(sku)) {
                 System.err.println("Sku đã tồn tại!");
                 continue;
@@ -156,8 +156,8 @@ public class ProductManager implements ShowListable<Product> {
             break;
         }
 
-        product.setName(view.getInfoIsString("tên"));
-        product.setPrice(view.getInfoIsInt("giá"));
+        product.setName(Input.getInfoIsString("tên"));
+        product.setPrice(Input.getInfoIsInt("giá"));
 
         System.out.println(product);
         boolean confirm = Input.showConfirm("Bạn có muốn thêm sản phẩm này không!");
