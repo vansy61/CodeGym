@@ -1,0 +1,10 @@
+1.tạo order => thêm sản phẩm, mã đơn hàng, line item {id_product, quantity, price}, created_at, status, total
+2. chỉnh sửa order
+2. xem danh sách order
+
+    1. => thêm sản phẩm
+    2. => xóa sản phẩm
+    3. => thanh toán
+    4. => hủy đơn hàng
+
+        1 order has many line_items

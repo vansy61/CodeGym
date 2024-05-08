@@ -10,7 +10,6 @@ public class Circle {
         this.radius = radius;
         this.color = color;
     }
-
     public double getS() {
         return PI * radius * radius;
     }

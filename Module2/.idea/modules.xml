@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BaiThiProduct/BaiThiProduct.iml" filepath="$PROJECT_DIR$/BaiThiProduct/BaiThiProduct.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CTDL/CTDL.iml" filepath="$PROJECT_DIR$/CTDL/CTDL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DemoList/DemoList.iml" filepath="$PROJECT_DIR$/DemoList/DemoList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DemoSearch/DemoSearch.iml" filepath="$PROJECT_DIR$/DemoSearch/DemoSearch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Module2.iml" filepath="$PROJECT_DIR$/Module2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MyStack/MyStack.iml" filepath="$PROJECT_DIR$/MyStack/MyStack.iml" />
+      <module fileurl="file://$PROJECT_DIR$/array/array.iml" filepath="$PROJECT_DIR$/array/array.iml" />
+      <module fileurl="file://$PROJECT_DIR$/case/case.iml" filepath="$PROJECT_DIR$/case/case.iml" />
+      <module fileurl="file://$PROJECT_DIR$/class_and_object/class_and_object.iml" filepath="$PROJECT_DIR$/class_and_object/class_and_object.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exception/exception.iml" filepath="$PROJECT_DIR$/exception/exception.iml" />
+      <module fileurl="file://$PROJECT_DIR$/io/io.iml" filepath="$PROJECT_DIR$/io/io.iml" />
+      <module fileurl="file://$PROJECT_DIR$/next_day_caculator/next_day_caculator.iml" filepath="$PROJECT_DIR$/next_day_caculator/next_day_caculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/student/student.iml" filepath="$PROJECT_DIR$/student/student.iml" />
+      <module fileurl="file://$PROJECT_DIR$/student_manager/student_manager.iml" filepath="$PROJECT_DIR$/student_manager/student_manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thread/thread.iml" filepath="$PROJECT_DIR$/thread/thread.iml" />
+      <module fileurl="file://$PROJECT_DIR$/untitled/untitled.iml" filepath="$PROJECT_DIR$/untitled/untitled.iml" />
+    </modules>
+  </component>
+</project>

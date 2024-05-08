@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -21,7 +23,7 @@ public class Main {
         for (int i = 0; i < listStudent.size(); i++) {
             Student student = (Student) listStudent.get(i);
             if(student.getGpa() > 8) {
-                System.out.println(student);
+                System.out.println();
             }
         }
     }
