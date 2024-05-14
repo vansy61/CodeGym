@@ -202,7 +202,7 @@ public class QuanLyBenhAn {
     }
 
     private void showList() {
-        if(benhAns.size() == 0) {
+        if(benhAns.isEmpty()) {
             System.out.println("Chưa có bệnh án nào!");
             return;
         }

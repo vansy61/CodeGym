@@ -26,9 +26,4 @@ public class Helper {
         return scanner.nextLine();
     }
 
-
-    public static void close() {
-        scanner.close();
-    }
-
 }
