@@ -17,4 +17,12 @@ public class BenhAnThuong extends BenhAn {
     public String getData() {
         return this.getId() + "," + this.getMaBenhAn() + "," + this.getMaBenhNhan() + "," + this.getTenBenhNhan() + "," + this.getNgayNhapVien() + "," + this.getNgayRaVien() + "," + this.getLyDoNhapVien() + "," + this.getPhiNamVien();
     }
+
+    @Override
+    public String toString() {
+        return "BenhAnThuong{" +
+                super.toString() +
+                ", phiNamVien='" + getPhiNamVien() + '\'' +
+                '}';
+    }
 }

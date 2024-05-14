@@ -18,6 +18,7 @@ public abstract class BenhAn {
         this.lyDoNhapVien = lyDoNhapVien;
         this.id = ++lastedId;
     }
+    abstract String getData();
 
     public String getMaBenhAn() {
         return maBenhAn;
@@ -47,7 +48,6 @@ public abstract class BenhAn {
         return id;
     }
 
-    abstract String getData();
 
     @Override
     public String toString() {

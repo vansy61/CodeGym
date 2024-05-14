@@ -17,4 +17,11 @@ public class BenhAnVip extends BenhAn {
     public String getData() {
         return this.getId() + "," + this.getMaBenhAn() + "," + this.getMaBenhNhan() + "," + this.getTenBenhNhan() + "," + this.getNgayNhapVien() + "," + this.getNgayRaVien() + "," + this.getLyDoNhapVien() + "," + this.getGoiVip();
     }
+    @Override
+    public String toString() {
+        return "BenhAnVip{" +
+                super.toString() +
+                ", goiVip='" + getGoiVip() + '\'' +
+                '}';
+    }
 }
