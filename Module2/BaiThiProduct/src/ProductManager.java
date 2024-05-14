@@ -14,10 +14,11 @@ public class ProductManager {
         }
     }
 
+
     public void run() {
         while (true) {
             view.showMainMenu();
-            int select = Input.getInt();
+            int select = Helper.getInt();
 
             switch (select) {
                 case 1:
@@ -61,7 +62,7 @@ public class ProductManager {
         Product product;
         do {
             System.out.println("Vui lòng nhập vào mã sản phẩm:");
-            String sku = Input.getText();
+            String sku = Helper.getText();
 
             if(sku.isEmpty()) {
                 return null;
@@ -85,7 +86,7 @@ public class ProductManager {
         while (true) {
             System.out.println(product);
             view.showUpdateMenu();
-            int select = Input.getInt();
+            int select = Helper.getInt();
             switch (select) {
                 case 1:
                     update(product, "sku");
@@ -155,7 +156,7 @@ public class ProductManager {
             }
             position += perPage;
             System.out.println("Vui lòng bấm enter để xem tiếp!");
-            Input.getText();
+            Helper.getText();
         }
     }
 

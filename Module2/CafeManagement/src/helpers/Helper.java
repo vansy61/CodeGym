@@ -1,8 +1,9 @@
-package io;
+package helpers;
 
+import java.text.Normalizer;
 import java.util.Scanner;
 
-public class Input {
+public class Helper {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static int getInt() {
@@ -25,7 +26,7 @@ public class Input {
     public static boolean showConfirm(String mes) {
         System.out.println(mes);
         System.out.println("Bấm Y để xác nhận");
-        String key = Input.getText();
+        String key = Helper.getText();
         return key.equalsIgnoreCase("y");
     }
 
@@ -33,7 +34,7 @@ public class Input {
         int value;
         do {
             System.out.println("Vui lòng nhập " + title + ": ");
-            value = Input.getInt();
+            value = Helper.getInt();
         }while (value < 1);
         return value;
     }
@@ -41,8 +42,23 @@ public class Input {
         String value;
         do {
             System.out.println("Vui lòng nhập " + title + ": ");
-            value = Input.getText();
+            value = Helper.getText();
         }while (value.isEmpty());
         return value;
+    }
+
+    public static String toLowerCaseNonAccentVn(String str) {
+        str = str.toLowerCase();
+        str = Normalizer.normalize(str, Normalizer.Form.NFD);
+        str = str.replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+        str = str.replaceAll("[àáạảãâầấậẩẫăằắặẳẵ]", "a");
+        str = str.replaceAll("[èéẹẻẽêềếệểễ]", "e");
+        str = str.replaceAll("[ìíịỉĩ]", "i");
+        str = str.replaceAll("[òóọỏõôồốộổỗơờớợởỡ]", "o");
+        str = str.replaceAll("[ùúụủũưừứựửữ]", "u");
+        str = str.replaceAll("[ỳýỵỷỹ]", "y");
+        str = str.replaceAll("[đ]", "d");
+        return str;
+
     }
 }

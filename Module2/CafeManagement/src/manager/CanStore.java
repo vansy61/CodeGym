@@ -1,7 +1,5 @@
 package manager;
 
-import product.Product;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -9,7 +7,7 @@ import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public interface Storageable<E> {
+public interface CanStore<E> {
     default List<E> readDb(File[] files) {
         List<E> list = new ArrayList<>();
         if (files == null) {

@@ -3,7 +3,7 @@ public class Main {
         ProductView view = new ProductView();
         ProductManager productManager = new ProductManager(view);
         productManager.run();
-        Input.close();
+        Helper.close();
         System.out.println("Good bye!");
     }
 }

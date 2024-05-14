@@ -7,7 +7,7 @@ public class OrderItem  implements Serializable {
     private final String productSku;
     private final String productName;
     private int quantity;
-    private double price;
+    private final double price;
     private double total;
 
     public OrderItem(String productSku, String productName, int quantity, double price, int total) {

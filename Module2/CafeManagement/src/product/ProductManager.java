@@ -1,10 +1,8 @@
 package product;
 
-import io.Input;
+import helpers.Helper;
 import manager.ShowListable;
-import order.OrderIo;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 public class ProductManager implements ShowListable<Product> {
@@ -19,7 +17,7 @@ public class ProductManager implements ShowListable<Product> {
     public void run() {
         while (true) {
             view.showMainMenu();
-            int select = Input.getInt();
+            int select = Helper.getInt();
 
             switch (select) {
                 case 1:
@@ -71,7 +69,7 @@ public class ProductManager implements ShowListable<Product> {
         Product product;
         do {
             System.out.println("Vui lòng nhập vào mã sản phẩm:");
-            String sku = Input.getText();
+            String sku = Helper.getText();
 
             if(sku.isEmpty()) {
                 return null;
@@ -95,7 +93,7 @@ public class ProductManager implements ShowListable<Product> {
         while (true) {
             System.out.println(product);
             view.showUpdateMenu();
-            int select = Input.getInt();
+            int select = Helper.getInt();
             switch (select) {
                 case 1:
                     update(product, "sku");
@@ -106,7 +104,7 @@ public class ProductManager implements ShowListable<Product> {
                 case 3:
                     update(product, "price");
                     break;
-                case 6:
+                case 4:
                     return;
                 default:
                     System.out.println("Vui lòng chọn lại!");
@@ -116,15 +114,16 @@ public class ProductManager implements ShowListable<Product> {
 
     }
     private void update(Product product, String type) {
+        new ProductIo().removeDb(product);
         switch (type) {
             case "sku":
                 updateSku(product);
                 break;
             case "name":
-                product.setName(Input.getInfoIsString("tên"));
+                product.setName(Helper.getInfoIsString("tên"));
                 break;
             case  "price":
-                product.setPrice(Input.getInfoIsInt("giá"));
+                product.setPrice(Helper.getInfoIsInt("giá"));
                 break;
         }
         new ProductIo().saveDb(product);
@@ -132,7 +131,7 @@ public class ProductManager implements ShowListable<Product> {
     }
     private void updateSku(Product product) {
         while(true) {
-            String sku = Input.getInfoIsString("sku");
+            String sku = Helper.getInfoIsString("sku");
             if(!Objects.equals(sku, product.getSku()) && checkExistSku(sku)) {
                 System.err.println("Sku đã tồn tại!");
                 continue;
@@ -147,7 +146,7 @@ public class ProductManager implements ShowListable<Product> {
         Product product = new Product();
 
         while(true) {
-            String sku = Input.getInfoIsString("sku");
+            String sku = Helper.getInfoIsString("sku");
             if(checkExistSku(sku)) {
                 System.err.println("Sku đã tồn tại!");
                 continue;
@@ -156,11 +155,11 @@ public class ProductManager implements ShowListable<Product> {
             break;
         }
 
-        product.setName(Input.getInfoIsString("tên"));
-        product.setPrice(Input.getInfoIsInt("giá"));
+        product.setName(Helper.getInfoIsString("tên"));
+        product.setPrice(Helper.getInfoIsInt("giá"));
 
         System.out.println(product);
-        boolean confirm = Input.showConfirm("Bạn có muốn thêm sản phẩm này không!");
+        boolean confirm = Helper.showConfirm("Bạn có muốn thêm sản phẩm này không!");
         if(confirm) {
             list.add(product);
             new ProductIo().saveDb(product);
@@ -173,7 +172,7 @@ public class ProductManager implements ShowListable<Product> {
 
         if(product != null) {
             System.out.println(product);
-            boolean confirm = Input.showConfirm("Bạn có muốn xóa sản phẩm này không!");
+            boolean confirm = Helper.showConfirm("Bạn có muốn xóa sản phẩm này không!");
             if(confirm) {
                 list.remove(product);
                 new ProductIo().removeDb(product);

@@ -1,7 +1,9 @@
 package order;
+import java.text.Normalizer;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import io.Input;
+import helpers.Helper;
 import manager.ShowListable;
 import product.Product;
 import product.ProductManager;
@@ -23,7 +25,7 @@ public class OrderManager implements ShowListable<Order> {
     public void run() {
         while (true) {
             view.showMainMenu();
-            int select = Input.getInt();
+            int select = Helper.getInt();
             switch (select) {
                 case 1:
                     searchOrder();
@@ -57,10 +59,10 @@ public class OrderManager implements ShowListable<Order> {
 
     public void searchOrder() {
         while (true) {
-            System.out.println("Nhập từ khóa tìm kiếm (số đơn hàng, tên khách hàng).");
+            System.out.println("Nhập từ khóa tìm kiếm (số đơn hàng, tên khách hàng, số điện thoại, trạng thái).");
             System.out.println("Nếu kết quả tìm kiếm chỉ có một đơn hàng sẽ tự động mở chỉnh sửa.");
             System.out.println("Tối thiểu 3 ký tự (nhập q để thoát):");
-            String select = Input.getText();
+            String select = Helper.getText();
 
             if(select.equalsIgnoreCase("q")) {
                 return;
@@ -75,10 +77,17 @@ public class OrderManager implements ShowListable<Order> {
         }
 
     }
+
     public void searchOrder(String key) {
         List<Order> result = new ArrayList<>();
+        key = Helper.toLowerCaseNonAccentVn(key);
         for(Order order : list) {
-            if(order.getCustomerName().contains(key) || order.getNumber().contains(key)) {
+            if(
+                Helper.toLowerCaseNonAccentVn(order.getCustomerName()).contains(key) ||
+                Helper.toLowerCaseNonAccentVn(order.getNumber()).contains(key) ||
+                Helper.toLowerCaseNonAccentVn(order.getReadableStatus()).contains(key) ||
+                Helper.toLowerCaseNonAccentVn(order.getPhoneNumber()).contains(key)
+            ) {
                 result.add(order);
             }
         }
@@ -96,8 +105,13 @@ public class OrderManager implements ShowListable<Order> {
 
     public void newOrder() {
         Order order = new Order();
-        String customerName = Input.getInfoIsString("tên khách hàng");
+        String customerName = Helper.getInfoIsString("tên khách hàng");
+        String phoneNumber = "";
+        while (!phoneNumber.matches("(84|0[3|5|7|8|9])+([0-9]{8})\\b")) {
+               phoneNumber = Helper.getInfoIsString("số điện thoại");
+        }
         order.setCustomerName(customerName);
+        order.setPhoneNumber(phoneNumber);
         list.add(order);
         System.out.println("Tạo đơn hàng thành công!");
         showOrder(order);
@@ -115,7 +129,7 @@ public class OrderManager implements ShowListable<Order> {
     private void showOrder() {
         while (true) {
             System.out.println("Vui lòng nhập số đơn hàng muốn xem:");
-            String number = Input.getText();
+            String number = Helper.getText();
             if(number.isEmpty()) {
                 break;
             }
@@ -136,12 +150,23 @@ public class OrderManager implements ShowListable<Order> {
         while (true) {
             System.out.println(order);
             System.out.println("Vui lòng nhập lệnh của bạn (nhập h để xem gợi ý, nhập q để thoát):");
-            String select = Input.getText();
+            String select = Helper.getText();
             if(select.equalsIgnoreCase("q")) {
                 return;
             }
             if(select.equalsIgnoreCase("h")) {
-                showHelpCommand();
+                view.showHelpCommand();
+                return;
+            }
+
+            if(select.equalsIgnoreCase("cancel")) {
+                order.setStatus("cancel");
+                return;
+            }
+
+            if(select.equalsIgnoreCase("pay")) {
+                order.setStatus("paid");
+                return;
             }
 
             String[] command = select.split(" ");
@@ -172,6 +197,7 @@ public class OrderManager implements ShowListable<Order> {
                         updateOrderItem(order, product, quantity);
                         break;
                 }
+                continue;
             }
 
             if(command.length == 2) {
@@ -183,7 +209,10 @@ public class OrderManager implements ShowListable<Order> {
                     }
                     deleteOrderItem(order, product);
                 }
+                continue;
             }
+
+            System.err.println("Lệnh không hợp lệ, nhập h để xem gợi ý!");
 
         }
     }
@@ -227,21 +256,13 @@ public class OrderManager implements ShowListable<Order> {
 
     }
 
-
-    private void showHelpCommand() {
-        System.out.println("Các lệnh hỗ trợ:");
-        System.out.println("add sku quantity: thêm sản phẩm vào đơn hàng (add SKU01 30)");
-        System.out.println("delete sku: xóa sản phẩm khỏi đơn hàng (delete SKU01)");
-        System.out.println("update sku quantity: cập nhật số lượng sản phẩm trong đơn hàng (update SKU01 30)");
-        System.out.println("pay: thanh toán đơn hàng");
-        System.out.println("cancel: hủy đơn hàng");
-        System.out.println("h: hiển thị lệnh hỗ trợ");
-        System.out.println("q: thoát");
-        System.out.println("Enter để tiếp tục...");
-        Input.getText();
+    public List<Order> getOrdersByDate(LocalDate startDate) {
+        List<Order> result = new ArrayList<>();
+        for(Order order : list) {
+            if(order.getDate().isAfter(startDate)) {
+                result.add(order);
+            }
+        }
+        return result;
     }
-
-
-
-
 }

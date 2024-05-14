@@ -1,6 +1,7 @@
-import io.Input;
+import helpers.Helper;
 import order.OrderManager;
 import product.ProductManager;
+import report.ReportManager;
 
 public class CafeManager {
     private static CafeManager instance;
@@ -16,10 +17,11 @@ public class CafeManager {
     public void run() {
         ProductManager productManager = new ProductManager();
         OrderManager orderManager = new OrderManager(productManager);
+        ReportManager reportManager = new ReportManager(orderManager);
 
         while(true) {
             showMenu();
-            int option = Input.getInt();
+            int option = Helper.getInt();
             switch(option) {
                 case 1:
                     productManager.run();
@@ -28,6 +30,9 @@ public class CafeManager {
                     orderManager.run();
                     break;
                 case 3:
+                    reportManager.run();
+                    break;
+                case 4:
                     System.exit(0);
                     break;
                 default:
@@ -43,7 +48,8 @@ public class CafeManager {
         System.out.println("=======================");
         System.out.println("1. Quản lý sản phẩm");
         System.out.println("2. Quản lý đơn hàng");
-        System.out.println("3. Thoát");
+        System.out.println("3. Báo cáo");
+        System.out.println("4. Thoát");
         System.out.println("Chọn chức năng theo số (để tiếp tục):");
     }
 }

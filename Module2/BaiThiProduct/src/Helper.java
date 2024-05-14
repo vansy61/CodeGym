@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Input {
+public class Helper {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static int getInt() {
@@ -12,11 +12,13 @@ public class Input {
         }
     }
 
-    public static String getText() {
-        return scanner.nextLine();
-    }
-    public static void close() {
-        scanner.close();
+    public static String getInfoIsStringNotEmpty(String title) {
+        String value;
+        do {
+            System.out.println("Vui lòng nhập " + title + ": ");
+            value = scanner.nextLine();
+        }while (value.isEmpty());
+        return value;
     }
 
 }

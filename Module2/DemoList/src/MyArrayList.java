@@ -45,4 +45,8 @@ public class MyArrayList {
     public void update(int index, Object value) {
         this.container[index] = value;
     }
+
+    interface Abc {
+        void abc();
+    }
 }

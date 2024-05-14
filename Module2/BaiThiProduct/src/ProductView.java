@@ -36,14 +36,14 @@ public class ProductView {
     public boolean showConfirm(String mes) {
         System.out.println(mes);
         System.out.println("Bấm Y để xác nhận");
-        String key = Input.getText();
+        String key = Helper.getText();
         return key.equalsIgnoreCase("y");
     }
     public String getInfoIsString(String title) {
         String value;
         do {
             System.out.println("Vui lòng nhập " + title + ": ");
-            value = Input.getText();
+            value = Helper.getText();
         }while (value.isEmpty());
         return value;
     }
@@ -52,7 +52,7 @@ public class ProductView {
         int value;
         do {
             System.out.println("Vui lòng nhập " + title + ": ");
-            value = Input.getInt();
+            value = Helper.getInt();
         }while (value < 0);
         return value;
     }

@@ -1,18 +1,19 @@
 package order;
 
-import com.sun.org.apache.xpath.internal.operations.Or;
-
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 public class Order implements Serializable {
     private static final long serialVersionUID = -9127312531253234L;
+    public static Object Status;
     private final String number;
     private String customerName;
-    private String date;
+    private String phoneNumber;
+    private LocalDate date;
     private final List<OrderItem> orderItems = new ArrayList<>();
 
     private double total;
@@ -20,17 +21,11 @@ public class Order implements Serializable {
 
     public Order() {
         this.number = "CF" + (int) (Math.random() * 100000);
-        this.date = getCurrentDate();
+        this.date = LocalDate.now();
 
     }
 
-
-    public String getCurrentDate() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return LocalDate.now().format(formatter);
-    }
-
-    public String getStatus() {
+    public String getReadableStatus() {
         if(status.equals("ready")) {
             return "Chưa thanh toán";
         }
@@ -38,6 +33,13 @@ public class Order implements Serializable {
             return "Đã thanh toán";
         }
         return "Đã hủy";
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public void setCustomerName(String customerName) {
@@ -53,11 +55,16 @@ public class Order implements Serializable {
         return null;
     }
     public void addOrderItem(OrderItem orderItem) {
-
+        if(checkStatusBeforeAction()) {
+            return;
+        }
         this.orderItems.add(orderItem);
     }
 
     public void deleteOrderItem(OrderItem orderItem) {
+        if(checkStatusBeforeAction()) {
+            return;
+        }
         this.orderItems.remove(orderItem);
     }
 
@@ -71,6 +78,41 @@ public class Order implements Serializable {
 
     public String getNumber() {
         return number;
+    }
+
+    public void setStatus(String status) {
+        if(checkStatusBeforeAction()) {
+            return;
+        }
+        this.status = status;
+        new OrderIo().saveDb(this);
+        System.out.println("Cập nhật trạng thái thành công!");
+        return;
+
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    private boolean checkStatusBeforeAction() {
+        if(!status.equals("ready")) {
+            System.err.println("Hành động không thể thực hiện vì đơn hàng đã " + getReadableStatus() + "!");
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -88,17 +130,15 @@ public class Order implements Serializable {
         return  "\nĐƠN HÀNG " + number + "\n" +
                 "=====================================\n" +
                 "Khách hàng: " + customerName + "\n" +
+                "Số điện thoại: " + phoneNumber + "\n" +
                 "Ngày tạo: " + date + "\n" +
                 "-------------------------------------\n" +
                 orderItemsStr+
                 "-------------------------------------\n" +
                 "Tổng tiền: " + total + "\n" +
-                "Trạng thái: " + getStatus() + "\n";
+                "Trạng thái: " + getReadableStatus() + "\n";
 
 
     }
 
-    public String getCustomerName() {
-        return customerName;
-    }
 }

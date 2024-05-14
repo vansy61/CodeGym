@@ -1,7 +1,5 @@
 package product;
 
-import io.Input;
-
 public class ProductView {
 
     public void showMainMenu() {
@@ -21,14 +19,12 @@ public class ProductView {
     }
 
     public void showUpdateMenu() {
-        System.out.println("---- CHỈNH SỬA SAẢN PHẨM ----");
+        System.out.println("---- CHỈNH SỬA SẢN PHẨM ----");
         String[] main_menu = {
                 "1. Mã sản phẩm",
                 "2. Tên sản phẩm",
                 "3. Giá",
-                "4. Số Lượng",
-                "5. Mô tả",
-                "6. Quay lại menu chính",
+                "4. Quay lại",
         };
 
         for(String menu : main_menu) {

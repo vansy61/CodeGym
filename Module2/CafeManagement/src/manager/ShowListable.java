@@ -1,8 +1,7 @@
 package manager;
 
-import io.Input;
+import helpers.Helper;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface ShowListable<E> {
@@ -19,7 +18,7 @@ public interface ShowListable<E> {
             }
             position += perPage;
             System.out.println("Vui lòng bấm enter để xem tiếp, nhập q để thoát!");
-            String select = Input.getText();
+            String select = Helper.getText();
             if(select.equalsIgnoreCase("q")) {
                 return;
             }

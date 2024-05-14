@@ -1,11 +1,11 @@
 package product;
 
-import manager.Storageable;
+import manager.CanStore;
 
 import java.io.*;
 import java.util.List;
 
-public class ProductIo implements Storageable<Product> {
+public class ProductIo implements CanStore<Product> {
     public File[] getFiles() {
         return new File("data/db/product").listFiles();
     }
@@ -30,7 +30,7 @@ public class ProductIo implements Storageable<Product> {
             oos.close();
             fos.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Không thể lưu sản phẩm!");
         }
     }
 
