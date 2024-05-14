@@ -33,7 +33,7 @@ public class QuanLyBenhAn {
                     System.exit(0);
                     break;
                 default:
-                    System.err.println("Không hợp lệ, vui lòng chọn lại!");
+                    System.out.println("Không hợp lệ, vui lòng chọn lại!");
                     break;
             }
         }
@@ -54,7 +54,7 @@ public class QuanLyBenhAn {
                 case 3:
                     return;
                 default:
-                    System.err.println("Không hợp lệ, vui lòng chọn lại!");
+                    System.out.println("Không hợp lệ, vui lòng chọn lại!");
                     break;
             }
         }
@@ -82,7 +82,7 @@ public class QuanLyBenhAn {
         }
 
         while (!maBenhNhan.matches(REGEX_MA_BENH_NHAN)) {
-            System.out.println("Nhập mã bệnh án đúng định dạng (BN-XXX):");
+            System.out.println("Nhập mã bệnh nhân đúng định dạng (BN-XXX):");
             maBenhNhan = Helper.getText();
         }
 
@@ -178,7 +178,7 @@ public class QuanLyBenhAn {
         String maBenhAn = Helper.getText();
         benhAn = findBenhAnByMaBenhAn(maBenhAn);
         if(benhAn == null) {
-            System.err.println("Không tìm thấy bệnh án này!");
+            System.out.println("Không tìm thấy bệnh án này!");
             return;
         }
 
